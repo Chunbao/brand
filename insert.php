@@ -1,14 +1,15 @@
 
 <?php
    // use 127.0.0.1 for tcp socket, localhost for unix socket
-   $dbhost = 'localhost';
+   #$dbhost = 'localhost';
+   $dbhost = '127.0.0.1';
    $dbuser = 'tester';
    $dbpass = 'focus1';
    $con = mysqli_connect($dbhost, $dbuser, $dbpass, 'testdb');
    if (mysqli_connect_errno()) {
      die( "Failed to connect to MySQL: " . mysqli_connect_error());
    }
-   echo 'Connected successfully';
+   echo 'Connected successfully<br>';
 
    $PersonId= mysqli_real_escape_string($con, $_POST['PersonId']);
    $LastName = mysqli_real_escape_string($con, $_POST['LastName']);
@@ -17,12 +18,12 @@
    $Content = mysqli_real_escape_string($con, $_POST['Content']);
 
    #$sql="INSERT INTO Persons (FirstName, LastName, Age) VALUES ('$firstname', '$lastname', '$age')";
-   $sql="INSERT INTO blog (PersonId, LastName, FirstName, Header, Content) VALUES ('$PersonId','$LastNmae','$FirstName','$Header','$Content')";
+   $sql="INSERT INTO blog (PersonId, LastName, FirstName, Header, Content) VALUES ('$PersonId','$LastName','$FirstName','$Header','$Content')";
 
    if (!mysqli_query($con,$sql)) {
      die('Error: ' . mysqli_error($con));
    }
-   echo "1 record added";
+   echo "1 record added<br>" ;
 
    mysqli_close($con); 
 ?>

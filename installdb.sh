@@ -7,4 +7,4 @@ mysql -u root -e "GRANT SELECT, INSERT, UPDATE, DELETE, DROP, CREATE ON testdb.*
 
 # replace localhost with % to enable connect from other machine
 
-mysql -u tester -pfocus1 testdb -e "CREATE TABLE blog(PersonID int, LastName varchar(255), FirstName varchar(255),Header varchar(255),Content TEXT)";
+mysql -u tester -pfocus1 testdb -e "CREATE TABLE blog(PersonId varchar(128), PRIMARY KEY (PersonId), LastName varchar(255), FirstName varchar(255), Header varchar(255), Content varchar(1024))";
