@@ -12,6 +12,11 @@
   while($row = mysqli_fetch_array($result)) {
     $a[] = $row['PersonId'];
   }
+  $a[] = 'a1';
+  $a[] = 'a2';
+  $a[] = 'a3';
+  $a[] = 'a4';
+
 
   mysqli_close($con); 
 
@@ -26,7 +31,7 @@
         if ($hint==="") {
           $hint=$name;
         } else {
-          $hint .= ", $name";
+          $hint .= ",<br> $name";
         }
       }
     }
